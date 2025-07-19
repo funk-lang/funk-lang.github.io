@@ -1,0 +1,78 @@
+# Site settings
+title: Funk Programming Language
+description: A modern, expressive programming language that brings the groove to your code
+baseurl: ""
+url: "https://your-username.github.io/funk.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: funk
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include
+include:
+  - _pages
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "page"
+
+# Social links (optional)
+github_username: your-username
+twitter_username: funk_lang
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Features
+    url: /#features
+  - title: Examples
+    url: /#examples
+  - title: Documentation
+    url: /docs/
+  - title: Download
+    url: /#download

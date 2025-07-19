@@ -1,0 +1,44 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>{{ site.title | default: 'Funk' }}</h3>
+                <p>{{ site.description }}</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="{{ '/docs/' | relative_url }}">Documentation</a></li>
+                    <li><a href="{{ '/#examples' | relative_url }}">Examples</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Development</h4>
+                <ul>
+                    {% if site.github_username %}
+                    <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+                    {% endif %}
+                    <li><a href="#">Issues</a></li>
+                    <li><a href="#">Contributing</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                    {% if site.twitter_username %}
+                    <li><a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a></li>
+                    {% endif %}
+                    <li><a href="#">Reddit</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title | default: 'Funk Programming Language' }}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

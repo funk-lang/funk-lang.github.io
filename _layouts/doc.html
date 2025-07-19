@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<article class="doc-article">
+    <header class="doc-header">
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="doc-description">{{ page.description }}</p>
+        {% endif %}
+    </header>
+    
+    <div class="doc-content">
+        {{ content }}
+    </div>
+    
+    {% if page.prev_doc or page.next_doc %}
+    <nav class="doc-navigation">
+        {% if page.prev_doc %}
+        <a href="{{ page.prev_doc.url | relative_url }}" class="doc-nav-prev">
+            ← {{ page.prev_doc.title }}
+        </a>
+        {% endif %}
+        
+        {% if page.next_doc %}
+        <a href="{{ page.next_doc.url | relative_url }}" class="doc-nav-next">
+            {{ page.next_doc.title }} →
+        </a>
+        {% endif %}
+    </nav>
+    {% endif %}
+</article>
