@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples | Funk</title>
+    <meta name="description" content="Real-world examples and best practices for common programming tasks">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Examples | Funk</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Examples" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Real-world examples and best practices for common programming tasks" />
+<meta property="og:description" content="Real-world examples and best practices for common programming tasks" />
+<link rel="canonical" href="http://localhost:4000/docs/examples/" />
+<meta property="og:url" content="http://localhost:4000/docs/examples/" />
+<meta property="og:site_name" content="Funk" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-20T01:10:59-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Examples" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-20T01:10:59-04:00","datePublished":"2025-07-20T01:10:59-04:00","description":"Real-world examples and best practices for common programming tasks","headline":"Examples","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/docs/examples/"},"url":"http://localhost:4000/docs/examples/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Funk" />
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1><a href="/">Funk</a></h1>
+            </div>
+            <ul class="nav-menu">
+                
+                <li><a href="/">Home</a></li>
+                
+                <li><a href="/#features">Features</a></li>
+                
+                <li><a href="/#examples">Examples</a></li>
+                
+                <li><a href="/docs/">Documentation</a></li>
+                
+                <li><a href="/#download">Download</a></li>
+                
+                <li style="display: flex; align-items: center;">
+                    <a href="https://github.com/funk-lang/funk" class="github-star-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="https://img.shields.io/github/stars/funk-lang/funk?style=social" alt="GitHub stars" style="margin: 0;">
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    
+    <main>
+        <article class="doc-article">
+    <header class="doc-header">
+        <h1>Examples</h1>
+        
+        <p class="doc-description">Real-world examples and best practices for common programming tasks</p>
+        
+    </header>
+    
+    <div class="doc-content">
+        <h1 id="funk-examples">Funk Examples</h1>
+
+<p>This page contains practical examples of Funk code for common programming tasks.</p>
+
+<h2 id="functions--pattern-matching">Functions &amp; Pattern Matching</h2>
+
+<p>Pattern matching is one of Funk’s most powerful features. Here’s how to use it effectively:</p>
+
+<pre><code class="language-funk">fn fibonacci(n: int) -&gt; int {
+    match n {
+        0 =&gt; 0,
+        1 =&gt; 1,
+        _ =&gt; fibonacci(n - 1) + fibonacci(n - 2)
+    }
+}
+
+let result = fibonacci(10)
+println("Fibonacci(10) = {result}")
+</code></pre>
+
+<h3 id="advanced-pattern-matching">Advanced Pattern Matching</h3>
+
+<pre><code class="language-funk">enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E)
+}
+
+fn handle_result&lt;T&gt;(result: Result&lt;T, string&gt;) {
+    match result {
+        Ok(value) =&gt; println("Success: {value}"),
+        Err(error) =&gt; println("Error: {error}")
+    }
+}
+
+// Pattern matching with guards
+fn classify_grade(score: int) -&gt; string {
+    match score {
+        s if s &gt;= 90 =&gt; "A",
+        s if s &gt;= 80 =&gt; "B",
+        s if s &gt;= 70 =&gt; "C",
+        s if s &gt;= 60 =&gt; "D",
+        _ =&gt; "F"
+    }
+}
+</code></pre>
+
+<h2 id="structs--methods">Structs &amp; Methods</h2>
+
+<p>Organize your data and behavior with structs and implementations:</p>
+
+<pre><code class="language-funk">struct Rectangle {
+    width: float,
+    height: float
+}
+
+impl Rectangle {
+    fn new(width: float, height: float) -&gt; Rectangle {
+        Rectangle { width, height }
+    }
+    
+    fn area(self) -&gt; float {
+        self.width * self.height
+    }
+    
+    fn perimeter(self) -&gt; float {
+        2.0 * (self.width + self.height)
+    }
+    
+    fn is_square(self) -&gt; bool {
+        self.width == self.height
+    }
+    
+    fn scale(mut self, factor: float) {
+        self.width *= factor
+        self.height *= factor
+    }
+}
+
+let mut rect = Rectangle::new(10.0, 5.0)
+println("Area: {rect.area()}")
+println("Perimeter: {rect.perimeter()}")
+println("Is square: {rect.is_square()}")
+
+rect.scale(2.0)
+println("After scaling - Area: {rect.area()}")
+</code></pre>
+
+<h2 id="async-programming">Async Programming</h2>
+
+<p>Funk makes asynchronous programming simple and intuitive:</p>
+
+<pre><code class="language-funk">async fn fetch_data(url: string) -&gt; Result&lt;string&gt; {
+    let response = http.get(url).await?
+    let text = response.text().await?
+    Ok(text)
+}
+
+async fn fetch_multiple_urls(urls: [string]) -&gt; Result&lt;[string]&gt; {
+    let tasks = urls.map(|url| fetch_data(url))
+    let results = futures::join_all(tasks).await
+    
+    let mut data = []
+    for result in results {
+        data.push(result?)
+    }
+    Ok(data)
+}
+
+async fn main() {
+    let urls = [
+        "https://api.example.com/users",
+        "https://api.example.com/posts",
+        "https://api.example.com/comments"
+    ]
+    
+    match fetch_multiple_urls(urls).await {
+        Ok(data) =&gt; {
+            for (i, content) in data.enumerate() {
+                println("Response {i}: {content.len()} bytes")
+            }
+        },
+        Err(e) =&gt; println("Error: {e}")
+    }
+}
+</code></pre>
+
+<h2 id="error-handling">Error Handling</h2>
+
+<p>Robust error handling with the Result type:</p>
+
+<pre><code class="language-funk">enum FileError {
+    NotFound,
+    PermissionDenied,
+    InvalidFormat
+}
+
+fn read_config_file(path: string) -&gt; Result&lt;Config, FileError&gt; {
+    let content = fs::read_to_string(path)
+        .map_err(|_| FileError::NotFound)?
+    
+    let config = parse_config(content)
+        .map_err(|_| FileError::InvalidFormat)?
+    
+    Ok(config)
+}
+
+fn main() {
+    match read_config_file("config.toml") {
+        Ok(config) =&gt; println("Config loaded: {config}"),
+        Err(FileError::NotFound) =&gt; println("Config file not found"),
+        Err(FileError::PermissionDenied) =&gt; println("Permission denied"),
+        Err(FileError::InvalidFormat) =&gt; println("Invalid config format")
+    }
+}
+</code></pre>
+
+<h2 id="collections-and-iterators">Collections and Iterators</h2>
+
+<p>Working with collections efficiently:</p>
+
+<pre><code class="language-funk">let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// Filter even numbers, square them, and sum
+let sum = numbers
+    .iter()
+    .filter(|&amp;x| x % 2 == 0)
+    .map(|x| x * x)
+    .fold(0, |acc, x| acc + x)
+
+println("Sum of squares of even numbers: {sum}")
+
+// Group by condition
+let (evens, odds): ([int], [int]) = numbers
+    .iter()
+    .partition(|&amp;x| x % 2 == 0)
+
+println("Evens: {evens}")
+println("Odds: {odds}")
+
+// Working with hashmaps
+let mut word_count = HashMap::new()
+let text = "the quick brown fox jumps over the lazy dog"
+
+for word in text.split_whitespace() {
+    *word_count.entry(word).or_insert(0) += 1
+}
+
+for (word, count) in word_count {
+    println("{word}: {count}")
+}
+</code></pre>
+
+<h2 id="modules-and-imports">Modules and Imports</h2>
+
+<p>Organizing code across modules:</p>
+
+<pre><code class="language-funk">// math/mod.funk
+pub mod geometry {
+    pub struct Point {
+        pub x: float,
+        pub y: float
+    }
+    
+    impl Point {
+        pub fn new(x: float, y: float) -&gt; Point {
+            Point { x, y }
+        }
+        
+        pub fn distance_to(self, other: Point) -&gt; float {
+            let dx = self.x - other.x
+            let dy = self.y - other.y
+            (dx * dx + dy * dy).sqrt()
+        }
+    }
+}
+
+pub mod algebra {
+    pub fn solve_quadratic(a: float, b: float, c: float) -&gt; Option&lt;(float, float)&gt; {
+        let discriminant = b * b - 4.0 * a * c
+        if discriminant &lt; 0.0 {
+            None
+        } else {
+            let sqrt_d = discriminant.sqrt()
+            let x1 = (-b + sqrt_d) / (2.0 * a)
+            let x2 = (-b - sqrt_d) / (2.0 * a)
+            Some((x1, x2))
+        }
+    }
+}
+
+// main.funk
+use math::geometry::Point
+use math::algebra::solve_quadratic
+
+fn main() {
+    let p1 = Point::new(0.0, 0.0)
+    let p2 = Point::new(3.0, 4.0)
+    println("Distance: {p1.distance_to(p2)}")
+    
+    if let Some((x1, x2)) = solve_quadratic(1.0, -5.0, 6.0) {
+        println("Solutions: {x1}, {x2}")
+    }
+}
+</code></pre>
+
+<h2 id="testing">Testing</h2>
+
+<p>Writing tests in Funk:</p>
+
+<pre><code class="language-funk">#[cfg(test)]
+mod tests {
+    use super::*
+    
+    #[test]
+    fn test_fibonacci() {
+        assert_eq!(fibonacci(0), 0)
+        assert_eq!(fibonacci(1), 1)
+        assert_eq!(fibonacci(5), 5)
+        assert_eq!(fibonacci(10), 55)
+    }
+    
+    #[test]
+    fn test_rectangle_area() {
+        let rect = Rectangle::new(10.0, 5.0)
+        assert_eq!(rect.area(), 50.0)
+        assert_eq!(rect.perimeter(), 30.0)
+        assert!(!rect.is_square())
+    }
+    
+    #[test]
+    async fn test_async_function() {
+        let result = fetch_data("https://httpbin.org/get").await
+        assert!(result.is_ok())
+    }
+}
+</code></pre>
+
+<p>Run tests with:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funk <span class="nb">test</span>
+</code></pre></div></div>
+
+<h2 id="performance-tips">Performance Tips</h2>
+
+<p>Writing efficient Funk code:</p>
+
+<pre><code class="language-funk">// Use iterators instead of collecting when possible
+let sum: int = numbers.iter().sum()  // Good
+let sum: int = numbers.iter().collect::&lt;Vec&lt;_&gt;&gt;().iter().sum()  // Avoid
+
+// Prefer borrowing over cloning
+fn process_string(s: &amp;string) {  // Good
+    // Process string
+}
+
+fn process_string(s: string) {  // Use only when ownership is needed
+    // Process string
+}
+
+// Use pattern matching for efficiency
+match value {
+    Some(x) if x &gt; 10 =&gt; process_large(x),
+    Some(x) =&gt; process_small(x),
+    None =&gt; handle_none()
+}
+</code></pre>
+
+<h2 id="advanced-type-system-monads">Advanced Type System: Monads</h2>
+
+<p>Funk’s sophisticated type system supports higher-kinded types and advanced abstractions like monads:</p>
+
+<pre><code class="language-funk">trait Monad (m :: * -&gt; *) {
+  return: forall a . (a -&gt; m a),
+  bind: forall a b . (m a -&gt; ((a -&gt; m b) -&gt; m b))
+}
+
+let bindInfix = \ma f -&gt; bind ma f;
+let bindFlipped = \f ma -&gt; bind ma f;
+let sequence = \ma mb -&gt; bind ma (\_ -&gt; mb);
+let join = \mma -&gt; bind mma (\ma -&gt; ma);
+let whenM = \p action -&gt; #ifThenElse p
+  action
+  (return #Unit);
+</code></pre>
+
+<p>This example demonstrates:</p>
+<ul>
+  <li><strong>Higher-kinded types</strong>: <code>m :: * -&gt; *</code> for type constructor polymorphism</li>
+  <li><strong>Universal quantification</strong>: <code>forall</code> for truly polymorphic functions</li>
+  <li><strong>Lambda expressions</strong>: Concise function syntax with <code>\</code></li>
+  <li><strong>Conditional expressions</strong>: <code>#ifThenElse</code> for functional control flow</li>
+</ul>
+
+<p>These examples showcase Funk’s expressive syntax and powerful features. For more advanced topics, check out our <a href="/docs/reference/">Language Reference</a> and <a href="/docs/api/">API Documentation</a>.</p>
+
+    </div>
+    
+    
+</article>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Funk</h3>
+                <p>A friendly, higher-kinded functional programming language</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/docs/">Documentation</a></li>
+                    <li><a href="/#examples">Examples</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Development</h4>
+                <ul>
+                    
+                    <li><a href="https://github.com/your-username">GitHub</a></li>
+                    
+                    <li><a href="#">Issues</a></li>
+                    <li><a href="#">Contributing</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                    
+                    <li><a href="https://twitter.com/funk_lang">Twitter</a></li>
+                    
+                    <li><a href="#">Reddit</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Funk. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

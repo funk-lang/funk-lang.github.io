@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation | Funk</title>
+    <meta name="description" content="Auto-generated documentation for the standard library and core modules">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>API Documentation | Funk</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="API Documentation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Auto-generated documentation for the standard library and core modules" />
+<meta property="og:description" content="Auto-generated documentation for the standard library and core modules" />
+<link rel="canonical" href="http://localhost:4000/docs/api/" />
+<meta property="og:url" content="http://localhost:4000/docs/api/" />
+<meta property="og:site_name" content="Funk" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-20T01:10:59-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="API Documentation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-20T01:10:59-04:00","datePublished":"2025-07-20T01:10:59-04:00","description":"Auto-generated documentation for the standard library and core modules","headline":"API Documentation","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/docs/api/"},"url":"http://localhost:4000/docs/api/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Funk" />
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1><a href="/">Funk</a></h1>
+            </div>
+            <ul class="nav-menu">
+                
+                <li><a href="/">Home</a></li>
+                
+                <li><a href="/#features">Features</a></li>
+                
+                <li><a href="/#examples">Examples</a></li>
+                
+                <li><a href="/docs/">Documentation</a></li>
+                
+                <li><a href="/#download">Download</a></li>
+                
+                <li style="display: flex; align-items: center;">
+                    <a href="https://github.com/funk-lang/funk" class="github-star-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="https://img.shields.io/github/stars/funk-lang/funk?style=social" alt="GitHub stars" style="margin: 0;">
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    
+    <main>
+        <article class="doc-article">
+    <header class="doc-header">
+        <h1>API Documentation</h1>
+        
+        <p class="doc-description">Auto-generated documentation for the standard library and core modules</p>
+        
+    </header>
+    
+    <div class="doc-content">
+        <h1 id="funk-standard-library-api">Funk Standard Library API</h1>
+
+<p>This page provides documentation for Funk’s built-in modules and functions.</p>
+
+<h2 id="core-types">Core Types</h2>
+
+<h3 id="basic-types">Basic Types</h3>
+
+<h4 id="int"><code>int</code></h4>
+<pre><code class="language-funk">// Integer operations
+let x: int = 42
+let y = x.abs()        // Absolute value
+let z = x.pow(2)       // Power
+let s = x.to_string()  // Convert to string
+</code></pre>
+
+<h4 id="float"><code>float</code></h4>
+<pre><code class="language-funk">// Floating point operations
+let pi: float = 3.14159
+let rounded = pi.round()     // Round to nearest integer
+let ceiling = pi.ceil()      // Round up
+let floor = pi.floor()       // Round down
+let sqrt_val = pi.sqrt()     // Square root
+</code></pre>
+
+<h4 id="string"><code>string</code></h4>
+<pre><code class="language-funk">// String operations
+let text = "Hello, Funk!"
+let length = text.len()           // Get length
+let upper = text.to_uppercase()   // Convert to uppercase
+let lower = text.to_lowercase()   // Convert to lowercase
+let trimmed = text.trim()         // Remove whitespace
+let parts = text.split(",")       // Split by delimiter
+let contains = text.contains("Funk")  // Check if contains substring
+</code></pre>
+
+<h4 id="bool"><code>bool</code></h4>
+<pre><code class="language-funk">// Boolean operations
+let flag = true
+let negated = !flag          // Logical NOT
+let result = flag &amp;&amp; true    // Logical AND
+let result2 = flag || false  // Logical OR
+</code></pre>
+
+<h2 id="collections">Collections</h2>
+
+<h3 id="arrayt"><code>Array&lt;T&gt;</code></h3>
+<pre><code class="language-funk">// Fixed-size arrays
+let numbers: [int; 5] = [1, 2, 3, 4, 5]
+let length = numbers.len()
+let first = numbers[0]
+let last = numbers[numbers.len() - 1]
+
+// Array methods
+let doubled = numbers.map(|x| x * 2)
+let evens = numbers.filter(|x| x % 2 == 0)
+let sum = numbers.fold(0, |acc, x| acc + x)
+</code></pre>
+
+<h3 id="slicet"><code>Slice&lt;T&gt;</code></h3>
+<pre><code class="language-funk">// Dynamic arrays
+let mut items: [string] = []
+items.push("Hello")          // Add element
+items.push("World")
+let popped = items.pop()     // Remove last element
+let length = items.len()     // Get length
+let is_empty = items.is_empty()  // Check if empty
+
+// Slice operations
+let sub_slice = items[1..3]  // Get sub-slice
+let contains = items.contains(&amp;"Hello")  // Check if contains
+items.sort()                 // Sort in place
+items.reverse()              // Reverse in place
+</code></pre>
+
+<h3 id="hashmapk-v"><code>HashMap&lt;K, V&gt;</code></h3>
+<pre><code class="language-funk">use std::collections::HashMap
+
+let mut map = HashMap::new()
+map.insert("key1", "value1")     // Insert key-value pair
+map.insert("key2", "value2")
+
+let value = map.get("key1")      // Get value by key
+let exists = map.contains_key("key1")  // Check if key exists
+let removed = map.remove("key1") // Remove key-value pair
+
+// Iteration
+for (key, value) in map {
+    println("{key}: {value}")
+}
+</code></pre>
+
+<h3 id="hashsett"><code>HashSet&lt;T&gt;</code></h3>
+<pre><code class="language-funk">use std::collections::HashSet
+
+let mut set = HashSet::new()
+set.insert("apple")              // Add element
+set.insert("banana")
+set.insert("apple")              // Duplicate ignored
+
+let contains = set.contains("apple")  // Check membership
+let removed = set.remove("banana")    // Remove element
+let length = set.len()               // Get size
+
+// Set operations
+let set2 = HashSet::from(["apple", "cherry"])
+let union = set.union(&amp;set2)         // Union
+let intersection = set.intersection(&amp;set2)  // Intersection
+</code></pre>
+
+<h2 id="result-and-option-types">Result and Option Types</h2>
+
+<h3 id="optiont"><code>Option&lt;T&gt;</code></h3>
+<pre><code class="language-funk">enum Option&lt;T&gt; {
+    Some(T),
+    None
+}
+
+// Option methods
+let maybe_value: Option&lt;int&gt; = Some(42)
+let is_some = maybe_value.is_some()      // Check if Some
+let is_none = maybe_value.is_none()      // Check if None
+let unwrapped = maybe_value.unwrap()     // Get value (panics if None)
+let or_default = maybe_value.unwrap_or(0)  // Get value or default
+
+// Pattern matching
+match maybe_value {
+    Some(x) =&gt; println("Value: {x}"),
+    None =&gt; println("No value")
+}
+</code></pre>
+
+<h3 id="resultt-e"><code>Result&lt;T, E&gt;</code></h3>
+<pre><code class="language-funk">enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E)
+}
+
+// Result methods
+let result: Result&lt;int, string&gt; = Ok(42)
+let is_ok = result.is_ok()           // Check if Ok
+let is_err = result.is_err()         // Check if Err
+let unwrapped = result.unwrap()      // Get value (panics if Err)
+let or_default = result.unwrap_or(0) // Get value or default
+
+// Error propagation
+fn might_fail() -&gt; Result&lt;int, string&gt; {
+    let value = another_function()?  // Propagate error with ?
+    Ok(value * 2)
+}
+</code></pre>
+
+<h2 id="io-operations">I/O Operations</h2>
+
+<h3 id="file-system-fs">File System (<code>fs</code>)</h3>
+<pre><code class="language-funk">use std::fs
+
+// Reading files
+let content = fs::read_to_string("file.txt")?    // Read entire file
+let bytes = fs::read("binary_file.dat")?         // Read as bytes
+
+// Writing files
+fs::write("output.txt", "Hello, World!")?       // Write string to file
+fs::write("data.dat", &amp;[1, 2, 3, 4])?          // Write bytes to file
+
+// File metadata
+let metadata = fs::metadata("file.txt")?
+let size = metadata.len()
+let is_file = metadata.is_file()
+let is_dir = metadata.is_dir()
+
+// Directory operations
+fs::create_dir("new_directory")?                // Create directory
+fs::create_dir_all("path/to/nested/dir")?      // Create nested directories
+fs::remove_file("file.txt")?                   // Remove file
+fs::remove_dir("empty_dir")?                   // Remove empty directory
+fs::remove_dir_all("directory_tree")?          // Remove directory recursively
+
+// List directory contents
+let entries = fs::read_dir(".")?
+for entry in entries {
+    let path = entry?.path()
+    println("{path}")
+}
+</code></pre>
+
+<h3 id="http-client-http">HTTP Client (<code>http</code>)</h3>
+<pre><code class="language-funk">use std::http
+
+async fn make_requests() -&gt; Result&lt;(), http::Error&gt; {
+    // GET request
+    let response = http::get("https://api.example.com/users").await?
+    let status = response.status()
+    let body = response.text().await?
+    
+    // POST request with JSON
+    let json_data = json!({
+        "name": "John Doe",
+        "email": "john@example.com"
+    })
+    
+    let response = http::post("https://api.example.com/users")
+        .header("Content-Type", "application/json")
+        .body(json_data.to_string())
+        .send()
+        .await?
+    
+    // Custom headers
+    let response = http::get("https://api.example.com/protected")
+        .header("Authorization", "Bearer token123")
+        .header("User-Agent", "FunkApp/1.0")
+        .send()
+        .await?
+    
+    Ok(())
+}
+</code></pre>
+
+<h2 id="concurrency">Concurrency</h2>
+
+<h3 id="asyncawait">Async/Await</h3>
+<pre><code class="language-funk">use std::time::Duration
+
+async fn delayed_task(delay: Duration, message: string) -&gt; string {
+    sleep(delay).await
+    message
+}
+
+async fn run_concurrent_tasks() {
+    let task1 = delayed_task(Duration::from_secs(1), "First")
+    let task2 = delayed_task(Duration::from_secs(2), "Second")
+    let task3 = delayed_task(Duration::from_secs(1), "Third")
+    
+    // Run tasks concurrently
+    let results = futures::join!(task1, task2, task3)
+    println("Results: {results.0}, {results.1}, {results.2}")
+    
+    // Run tasks and get first completed
+    let first = futures::select!(
+        result1 = task1 =&gt; result1,
+        result2 = task2 =&gt; result2,
+        result3 = task3 =&gt; result3,
+    )
+    println("First completed: {first}")
+}
+</code></pre>
+
+<h3 id="channels">Channels</h3>
+<pre><code class="language-funk">use std::sync::mpsc
+
+async fn producer_consumer_example() {
+    let (tx, rx) = mpsc::channel()
+    
+    // Producer task
+    spawn(async move {
+        for i in 0..10 {
+            tx.send(i).await.unwrap()
+            sleep(Duration::from_millis(100)).await
+        }
+    })
+    
+    // Consumer task
+    spawn(async move {
+        while let Some(value) = rx.recv().await {
+            println("Received: {value}")
+        }
+    })
+}
+</code></pre>
+
+<h2 id="math-module">Math Module</h2>
+
+<pre><code class="language-funk">use std::math
+
+// Constants
+let pi = math::PI
+let e = math::E
+
+// Basic functions
+let abs_val = math::abs(-5.0)        // Absolute value
+let min_val = math::min(10, 20)      // Minimum
+let max_val = math::max(10, 20)      // Maximum
+let clamped = math::clamp(15, 0, 10) // Clamp to range
+
+// Trigonometry
+let sin_val = math::sin(pi / 2.0)    // Sine
+let cos_val = math::cos(0.0)         // Cosine
+let tan_val = math::tan(pi / 4.0)    // Tangent
+let asin_val = math::asin(1.0)       // Arc sine
+
+// Exponential and logarithm
+let exp_val = math::exp(1.0)         // e^x
+let ln_val = math::ln(e)             // Natural logarithm
+let log10_val = math::log10(100.0)   // Base-10 logarithm
+let pow_val = math::pow(2.0, 3.0)    // Power
+
+// Rounding
+let rounded = math::round(3.7)       // Round to nearest
+let ceiling = math::ceil(3.1)        // Round up
+let floor = math::floor(3.9)         // Round down
+</code></pre>
+
+<h2 id="time-and-date">Time and Date</h2>
+
+<pre><code class="language-funk">use std::time::{Duration, Instant, SystemTime}
+
+// Duration
+let duration = Duration::from_secs(30)
+let millis = Duration::from_millis(500)
+let nanos = duration.as_nanos()
+
+// Instant (monotonic time)
+let start = Instant::now()
+// ... do some work ...
+let elapsed = start.elapsed()
+println("Operation took: {elapsed:?}")
+
+// System time
+let now = SystemTime::now()
+let timestamp = now.duration_since(SystemTime::UNIX_EPOCH)?
+println("Unix timestamp: {timestamp.as_secs()}")
+</code></pre>
+
+<h2 id="json-handling">JSON Handling</h2>
+
+<pre><code class="language-funk">use std::json
+
+// Parsing JSON
+let json_str = r#"{"name": "John", "age": 30, "active": true}"#
+let parsed: json::Value = json::parse(json_str)?
+
+// Accessing values
+let name = parsed["name"].as_string()?
+let age = parsed["age"].as_int()?
+let active = parsed["active"].as_bool()?
+
+// Creating JSON
+let data = json!({
+    "users": [
+        {"id": 1, "name": "Alice"},
+        {"id": 2, "name": "Bob"}
+    ],
+    "total": 2
+})
+
+let json_string = data.to_string()
+</code></pre>
+
+<p>For complete API documentation including all available methods and examples, visit our <a href="https://docs.funk-lang.org/api/">online API reference</a>.</p>
+
+    </div>
+    
+    
+</article>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Funk</h3>
+                <p>A friendly, higher-kinded functional programming language</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/docs/">Documentation</a></li>
+                    <li><a href="/#examples">Examples</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Development</h4>
+                <ul>
+                    
+                    <li><a href="https://github.com/your-username">GitHub</a></li>
+                    
+                    <li><a href="#">Issues</a></li>
+                    <li><a href="#">Contributing</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                    
+                    <li><a href="https://twitter.com/funk_lang">Twitter</a></li>
+                    
+                    <li><a href="#">Reddit</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Funk. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

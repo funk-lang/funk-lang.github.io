@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Funk</title>
+    <meta name="description" content="Discover what makes Funk a powerful and expressive programming language">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Features | Funk</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Features" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Discover what makes Funk a powerful and expressive programming language" />
+<meta property="og:description" content="Discover what makes Funk a powerful and expressive programming language" />
+<link rel="canonical" href="http://localhost:4000/features/" />
+<meta property="og:url" content="http://localhost:4000/features/" />
+<meta property="og:site_name" content="Funk" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Features" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Discover what makes Funk a powerful and expressive programming language","headline":"Features","url":"http://localhost:4000/features/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Funk" />
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1><a href="/">Funk</a></h1>
+            </div>
+            <ul class="nav-menu">
+                
+                <li><a href="/">Home</a></li>
+                
+                <li><a href="/#features">Features</a></li>
+                
+                <li><a href="/#examples">Examples</a></li>
+                
+                <li><a href="/docs/">Documentation</a></li>
+                
+                <li><a href="/#download">Download</a></li>
+                
+                <li style="display: flex; align-items: center;">
+                    <a href="https://github.com/funk-lang/funk" class="github-star-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="https://img.shields.io/github/stars/funk-lang/funk?style=social" alt="GitHub stars" style="margin: 0;">
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    
+    <main>
+        <h1 id="why-choose-funk">Why Choose Funk?</h1>
+
+<p>Funk is designed to be A friendly, higher-kinded functional programming language. Here are the key features that make Funk special:</p>
+
+<div class="features-grid">
+  <div class="feature-card">
+    <div class="feature-icon">🚀</div>
+    <h3>Fast &amp; Efficient</h3>
+    <p>Compiled to native code with zero-cost abstractions and memory safety without garbage collection.</p>
+  </div>
+  
+  <div class="feature-card">
+    <div class="feature-icon">🎨</div>
+    <h3>Expressive Syntax</h3>
+    <p>Clean, readable syntax that makes complex concepts simple and intuitive to express.</p>
+  </div>
+  
+  <div class="feature-card">
+    <div class="feature-icon">🔧</div>
+    <h3>Modern Tooling</h3>
+    <p>Built-in package manager, formatter, and comprehensive development tools out of the box.</p>
+  </div>
+  
+  <div class="feature-card">
+    <div class="feature-icon">🌐</div>
+    <h3>Cross-Platform</h3>
+    <p>Write once, run anywhere. Supports Windows, macOS, Linux, and WebAssembly targets.</p>
+  </div>
+  
+  <div class="feature-card">
+    <div class="feature-icon">🔒</div>
+    <h3>Memory Safe</h3>
+    <p>Prevent common programming errors with compile-time memory safety guarantees.</p>
+  </div>
+  
+  <div class="feature-card">
+    <div class="feature-icon">⚡</div>
+    <h3>Concurrent</h3>
+    <p>Built-in support for async/await and lightweight threading for high-performance applications.</p>
+  </div>
+</div>
+
+<h2 id="deep-dive-into-features">Deep Dive into Features</h2>
+
+<h3 id="memory-safety-without-garbage-collection">Memory Safety Without Garbage Collection</h3>
+
+<p>Funk uses advanced static analysis to ensure memory safety at compile time:</p>
+
+<pre><code class="language-funk">fn safe_memory_example() {
+    let data = vec![1, 2, 3, 4, 5]
+    let slice = &amp;data[1..4]  // Borrow checking ensures safety
+    
+    // This would be caught at compile time:
+    // drop(data)  // Error: cannot drop while borrowed
+    
+    println("Slice: {slice}")
+    // slice goes out of scope, borrow ends
+    // data can now be safely dropped
+}
+</code></pre>
+
+<h3 id="zero-cost-abstractions">Zero-Cost Abstractions</h3>
+
+<p>High-level features compile down to efficient machine code:</p>
+
+<pre><code class="language-funk">// This iterator chain...
+let result = numbers
+    .iter()
+    .filter(|&amp;x| x % 2 == 0)
+    .map(|x| x * x)
+    .sum()
+
+// ...compiles to something like this loop:
+let mut result = 0
+for x in numbers {
+    if x % 2 == 0 {
+        result += x * x
+    }
+}
+</code></pre>
+
+<h3 id="pattern-matching">Pattern Matching</h3>
+
+<p>Powerful pattern matching for control flow and data destructuring:</p>
+
+<pre><code class="language-funk">enum Message {
+    Quit,
+    Move { x: int, y: int },
+    Write(string),
+    ChangeColor(int, int, int)
+}
+
+fn process_message(msg: Message) {
+    match msg {
+        Message::Quit =&gt; {
+            println("Quitting...")
+        },
+        Message::Move { x, y } =&gt; {
+            println("Moving to ({x}, {y})")
+        },
+        Message::Write(text) =&gt; {
+            println("Text message: {text}")
+        },
+        Message::ChangeColor(r, g, b) =&gt; {
+            println("Changing color to RGB({r}, {g}, {b})")
+        }
+    }
+}
+</code></pre>
+
+<h3 id="asyncawait">Async/Await</h3>
+
+<p>Built-in support for asynchronous programming:</p>
+
+<pre><code class="language-funk">use std::time::Duration
+
+async fn fetch_and_process() -&gt; Result&lt;string&gt; {
+    let data = fetch_data("https://api.example.com").await?
+    let processed = process_data(data).await?
+    Ok(processed)
+}
+
+async fn main() {
+    let tasks = vec![
+        fetch_and_process(),
+        fetch_and_process(),
+        fetch_and_process(),
+    ]
+    
+    let results = futures::join_all(tasks).await
+    for result in results {
+        match result {
+            Ok(data) =&gt; println("Success: {data}"),
+            Err(e) =&gt; println("Error: {e}")
+        }
+    }
+}
+</code></pre>
+
+<h3 id="modern-tooling">Modern Tooling</h3>
+
+<p>Funk comes with everything you need:</p>
+
+<h4 id="package-manager">Package Manager</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create a new project</span>
+funk new my-project
+
+<span class="c"># Add dependencies</span>
+funk add http-client json-parser
+
+<span class="c"># Build and run</span>
+funk build
+funk run
+</code></pre></div></div>
+
+<h4 id="formatter">Formatter</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Format your code</span>
+funk <span class="nb">fmt</span>
+
+<span class="c"># Check formatting without changing files</span>
+funk <span class="nb">fmt</span> <span class="nt">--check</span>
+</code></pre></div></div>
+
+<h4 id="testing-framework">Testing Framework</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run tests</span>
+funk <span class="nb">test</span>
+
+<span class="c"># Run tests with coverage</span>
+funk <span class="nb">test</span> <span class="nt">--coverage</span>
+
+<span class="c"># Run specific test</span>
+funk <span class="nb">test </span>test_name
+</code></pre></div></div>
+
+<h4 id="documentation-generator">Documentation Generator</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Generate documentation</span>
+funk doc
+
+<span class="c"># Serve documentation locally</span>
+funk doc <span class="nt">--serve</span>
+</code></pre></div></div>
+
+<h3 id="cross-platform-support">Cross-Platform Support</h3>
+
+<p>Funk targets multiple platforms from a single codebase:</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Funk.toml</span>
+<span class="nn">[package]</span>
+<span class="py">name</span> <span class="p">=</span> <span class="s">"my-app"</span>
+<span class="py">version</span> <span class="p">=</span> <span class="s">"1.0.0"</span>
+
+<span class="nn">[targets]</span>
+<span class="py">default</span> <span class="p">=</span> <span class="s">"native"</span>
+
+<span class="nn">[targets.native]</span>
+<span class="c"># Compiles to native executable</span>
+
+<span class="nn">[targets.wasm]</span>
+<span class="c"># Compiles to WebAssembly</span>
+<span class="py">target</span> <span class="p">=</span> <span class="s">"wasm32-unknown-unknown"</span>
+
+<span class="nn">[targets.android]</span>
+<span class="c"># Cross-compile for Android</span>
+<span class="py">target</span> <span class="p">=</span> <span class="s">"aarch64-linux-android"</span>
+</code></pre></div></div>
+
+<p>Build for different targets:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funk build <span class="nt">--target</span> native
+funk build <span class="nt">--target</span> wasm
+funk build <span class="nt">--target</span> android
+</code></pre></div></div>
+
+<h2 id="performance-characteristics">Performance Characteristics</h2>
+
+<p>Funk is designed for performance:</p>
+
+<ul>
+  <li><strong>Zero-cost abstractions</strong>: High-level features have no runtime overhead</li>
+  <li><strong>Ahead-of-time compilation</strong>: No JIT compilation delays</li>
+  <li><strong>Memory efficient</strong>: No garbage collector, predictable memory usage</li>
+  <li><strong>SIMD support</strong>: Automatic vectorization where possible</li>
+  <li><strong>Link-time optimization</strong>: Aggressive optimization across module boundaries</li>
+</ul>
+
+<h2 id="comparison-with-other-languages">Comparison with Other Languages</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Funk</th>
+      <th>Rust</th>
+      <th>Go</th>
+      <th>TypeScript</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Memory Safety</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Garbage Collector</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Pattern Matching</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Async/Await</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Zero-cost Abstractions</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Learning Curve</td>
+      <td>Medium</td>
+      <td>Hard</td>
+      <td>Easy</td>
+      <td>Easy</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Ready to experience these features yourself?</p>
+
+<ol>
+  <li><strong><a href="/docs/getting-started/">Install Funk</a></strong> - Get up and running in minutes</li>
+  <li><strong><a href="/docs/examples/">Try Examples</a></strong> - See Funk’s features in action</li>
+  <li><strong><a href="/docs/reference/">Read the Reference</a></strong> - Learn the language in depth</li>
+</ol>
+
+<hr />
+
+<p><em>Have questions about Funk’s features? Join our <a href="https://discord.gg/funk-lang">Discord community</a> for help and discussion.</em></p>
+
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Funk</h3>
+                <p>A friendly, higher-kinded functional programming language</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/docs/">Documentation</a></li>
+                    <li><a href="/#examples">Examples</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Development</h4>
+                <ul>
+                    
+                    <li><a href="https://github.com/your-username">GitHub</a></li>
+                    
+                    <li><a href="#">Issues</a></li>
+                    <li><a href="#">Contributing</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                    
+                    <li><a href="https://twitter.com/funk_lang">Twitter</a></li>
+                    
+                    <li><a href="#">Reddit</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Funk. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

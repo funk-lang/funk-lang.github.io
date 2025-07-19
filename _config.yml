@@ -1,6 +1,6 @@
 # Site settings
-title: Funk Programming Language
-description: A modern, expressive programming language that brings the groove to your code
+title: Funk
+description: A friendly, higher-kinded functional programming language
 baseurl: ""
 url: "https://your-username.github.io/funk.github.io"
 

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started | Funk</title>
+    <meta name="description" content="Learn the basics and get your first Funk program running in minutes">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Getting Started | Funk</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Getting Started" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learn the basics and get your first Funk program running in minutes" />
+<meta property="og:description" content="Learn the basics and get your first Funk program running in minutes" />
+<link rel="canonical" href="http://localhost:4000/docs/getting-started/" />
+<meta property="og:url" content="http://localhost:4000/docs/getting-started/" />
+<meta property="og:site_name" content="Funk" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-20T01:10:59-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Getting Started" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-20T01:10:59-04:00","datePublished":"2025-07-20T01:10:59-04:00","description":"Learn the basics and get your first Funk program running in minutes","headline":"Getting Started","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/docs/getting-started/"},"url":"http://localhost:4000/docs/getting-started/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Funk" />
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1><a href="/">Funk</a></h1>
+            </div>
+            <ul class="nav-menu">
+                
+                <li><a href="/">Home</a></li>
+                
+                <li><a href="/#features">Features</a></li>
+                
+                <li><a href="/#examples">Examples</a></li>
+                
+                <li><a href="/docs/">Documentation</a></li>
+                
+                <li><a href="/#download">Download</a></li>
+                
+                <li style="display: flex; align-items: center;">
+                    <a href="https://github.com/funk-lang/funk" class="github-star-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="https://img.shields.io/github/stars/funk-lang/funk?style=social" alt="GitHub stars" style="margin: 0;">
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    
+    <main>
+        <article class="doc-article">
+    <header class="doc-header">
+        <h1>Getting Started</h1>
+        
+        <p class="doc-description">Learn the basics and get your first Funk program running in minutes</p>
+        
+    </header>
+    
+    <div class="doc-content">
+        <h1 id="getting-started-with-funk">Getting Started with Funk</h1>
+
+<p>Welcome to Funk! This guide will help you install Funk and write your first program.</p>
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="using-the-installer-script">Using the installer script</h3>
+
+<p>The easiest way to install Funk is using our installer script:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> https://get.funk-lang.org | sh
+</code></pre></div></div>
+
+<h3 id="manual-installation">Manual installation</h3>
+
+<ol>
+  <li>Download the latest release for your platform from <a href="https://github.com/funk-lang/funk/releases">GitHub Releases</a></li>
+  <li>Extract the archive to a directory in your PATH</li>
+  <li>Verify the installation by running <code>funk --version</code></li>
+</ol>
+
+<h3 id="platform-specific-instructions">Platform-specific instructions</h3>
+
+<h4 id="windows">Windows</h4>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Using winget (coming soon)</span><span class="w">
+</span><span class="n">winget</span><span class="w"> </span><span class="nx">install</span><span class="w"> </span><span class="nx">funk-lang.funk</span><span class="w">
+
+</span><span class="c"># Or download the installer</span><span class="w">
+</span><span class="c"># Run funk-installer.exe and follow the instructions</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="macos">macOS</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Using Homebrew</span>
+brew <span class="nb">install </span>funk-lang/tap/funk
+
+<span class="c"># Or using the installer script</span>
+curl <span class="nt">-fsSL</span> https://get.funk-lang.org | sh
+</code></pre></div></div>
+
+<h4 id="linux">Linux</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Download and install</span>
+wget https://github.com/funk-lang/funk/releases/latest/download/funk-linux-x64.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzf</span> funk-linux-x64.tar.gz
+<span class="nb">sudo mv </span>funk /usr/local/bin/
+</code></pre></div></div>
+
+<h2 id="your-first-program">Your First Program</h2>
+
+<p>Create a new file called <code>hello.funk</code>:</p>
+
+<pre><code class="language-funk">fn main() {
+    println("Hello, Funk!")
+}
+</code></pre>
+
+<p>Run your program:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funk run hello.funk
+</code></pre></div></div>
+
+<p>You should see:</p>
+
+<pre><code>Hello, Funk!
+</code></pre>
+
+<h2 id="project-structure">Project Structure</h2>
+
+<p>For larger projects, create a new Funk project:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funk new my-project
+<span class="nb">cd </span>my-project
+</code></pre></div></div>
+
+<p>This creates a directory structure:</p>
+
+<pre><code>my-project/
+├── Funk.toml          # Project configuration
+├── src/
+│   └── main.funk      # Main source file
+├── tests/
+│   └── main_test.funk # Test files
+└── README.md
+</code></pre>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<ul>
+  <li>Read the <a href="/docs/reference/">Language Reference</a> to learn about Funk’s syntax</li>
+  <li>Check out <a href="/docs/examples/">Examples</a> for common patterns</li>
+  <li>Browse the <a href="/docs/api/">API Documentation</a> for the standard library</li>
+</ul>
+
+<h2 id="getting-help">Getting Help</h2>
+
+<ul>
+  <li>Join our <a href="https://discord.gg/funk-lang">Discord community</a></li>
+  <li>Ask questions on <a href="https://stackoverflow.com/questions/tagged/funk-lang">Stack Overflow</a></li>
+  <li>Report issues on <a href="https://github.com/funk-lang/funk/issues">GitHub</a></li>
+</ul>
+
+    </div>
+    
+    
+</article>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Funk</h3>
+                <p>A friendly, higher-kinded functional programming language</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/docs/">Documentation</a></li>
+                    <li><a href="/#examples">Examples</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Development</h4>
+                <ul>
+                    
+                    <li><a href="https://github.com/your-username">GitHub</a></li>
+                    
+                    <li><a href="#">Issues</a></li>
+                    <li><a href="#">Contributing</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                    
+                    <li><a href="https://twitter.com/funk_lang">Twitter</a></li>
+                    
+                    <li><a href="#">Reddit</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Funk. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

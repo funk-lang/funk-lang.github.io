@@ -58,7 +58,7 @@ We recommend following this learning path:
 4. **[Pattern Matching]({% link _docs/reference.md %}#pattern-matching)** - Master pattern matching
 5. **[Error Handling]({% link _docs/reference.md %}#error-handling)** - Learn proper error handling techniques
 6. **[Modules]({% link _docs/reference.md %}#modules)** - Organize your code with modules
-7. **[Advanced Features]({% link _docs/advanced.md %})** - Explore advanced language features
+7. **[API Reference]({% link _docs/api.md %})** - Explore the standard library and built-in functions
 
 ## Community Resources
 

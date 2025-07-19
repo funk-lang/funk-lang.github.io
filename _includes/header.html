@@ -8,6 +8,11 @@
                 {% for item in site.navigation %}
                 <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
                 {% endfor %}
+                <li style="display: flex; align-items: center;">
+                    <a href="https://github.com/funk-lang/funk" class="github-star-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="https://img.shields.io/github/stars/funk-lang/funk?style=social" alt="GitHub stars" style="margin: 0;">
+                    </a>
+                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>

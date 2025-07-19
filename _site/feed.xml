@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-20T01:10:59-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Funk</title><subtitle>A friendly, higher-kinded functional programming language</subtitle><entry><title type="html">Introducing Funk: A New Programming Language</title><link href="http://localhost:4000/announcement/language-design/2025/01/19/introducing-funk.html" rel="alternate" type="text/html" title="Introducing Funk: A New Programming Language" /><published>2025-01-19T00:00:00-05:00</published><updated>2025-01-19T00:00:00-05:00</updated><id>http://localhost:4000/announcement/language-design/2025/01/19/introducing-funk</id><content type="html" xml:base="http://localhost:4000/announcement/language-design/2025/01/19/introducing-funk.html"><![CDATA[<h1 id="introducing-funk-a-new-programming-language">Introducing Funk: A New Programming Language</h1>
+
+<p>We’re thrilled to announce the release of <strong>Funk</strong>, a modern programming language that brings the groove to your code! After years of development, we’re excited to share Funk with the programming community.</p>
+
+<h2 id="why-another-programming-language">Why Another Programming Language?</h2>
+
+<p>You might be wondering, “Do we really need another programming language?” We believe the answer is yes, and here’s why:</p>
+
+<h3 id="-expressiveness-without-sacrifice">🎯 <strong>Expressiveness Without Sacrifice</strong></h3>
+
+<p>Funk is designed to be highly expressive while maintaining excellent performance. You can write code that’s both readable and fast:</p>
+
+<pre><code class="language-funk">// Clean, readable syntax
+fn fibonacci(n: int) -&gt; int {
+    match n {
+        0 =&gt; 0,
+        1 =&gt; 1,
+        _ =&gt; fibonacci(n - 1) + fibonacci(n - 2)
+    }
+}
+
+// Async programming made simple
+async fn fetch_user_data(id: int) -&gt; Result&lt;User&gt; {
+    let response = http.get("/api/users/{id}").await?
+    let user = response.json::&lt;User&gt;().await?
+    Ok(user)
+}
+</code></pre>
+
+<h3 id="-memory-safety-without-garbage-collection">🚀 <strong>Memory Safety Without Garbage Collection</strong></h3>
+
+<p>Funk provides memory safety guarantees at compile time, eliminating common bugs like null pointer dereferences and buffer overflows, all without the overhead of a garbage collector.</p>
+
+<h3 id="️-modern-tooling-from-day-one">🛠️ <strong>Modern Tooling from Day One</strong></h3>
+
+<p>Unlike languages that evolved over decades, Funk was designed with modern development workflows in mind:</p>
+
+<ul>
+  <li><strong>Built-in package manager</strong> (<code>funk package</code>)</li>
+  <li><strong>Integrated formatter</strong> (<code>funk fmt</code>)</li>
+  <li><strong>Comprehensive testing framework</strong> (<code>funk test</code>)</li>
+  <li><strong>Documentation generator</strong> (<code>funk doc</code>)</li>
+</ul>
+
+<h2 id="key-features">Key Features</h2>
+
+<h3 id="pattern-matching">Pattern Matching</h3>
+
+<p>One of Funk’s most powerful features is its pattern matching system:</p>
+
+<pre><code class="language-funk">enum Shape {
+    Circle { radius: float },
+    Rectangle { width: float, height: float },
+    Triangle { base: float, height: float }
+}
+
+fn area(shape: Shape) -&gt; float {
+    match shape {
+        Circle { radius } =&gt; PI * radius * radius,
+        Rectangle { width, height } =&gt; width * height,
+        Triangle { base, height } =&gt; 0.5 * base * height
+    }
+}
+</code></pre>
+
+<h3 id="asyncawait">Async/Await</h3>
+
+<p>Asynchronous programming is a first-class citizen in Funk:</p>
+
+<pre><code class="language-funk">async fn process_files(filenames: [string]) -&gt; Result&lt;()&gt; {
+    let tasks = filenames.map(|name| async {
+        let content = fs.read_to_string(name).await?
+        let processed = process_content(content).await?
+        fs.write(name + ".processed", processed).await
+    })
+    
+    futures.join_all(tasks).await?
+    Ok(())
+}
+</code></pre>
+
+<h3 id="zero-cost-abstractions">Zero-Cost Abstractions</h3>
+
+<p>High-level features in Funk compile down to efficient machine code:</p>
+
+<pre><code class="language-funk">// This iterator chain compiles to a simple loop
+let sum = numbers
+    .filter(|x| x % 2 == 0)
+    .map(|x| x * x)
+    .fold(0, |acc, x| acc + x)
+</code></pre>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Ready to try Funk? Getting started is easy:</p>
+
+<ol>
+  <li><strong>Install Funk</strong>:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> https://get.funk-lang.org | sh
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Create your first program</strong>:
+    <pre><code class="language-funk">fn main() {
+    println("Hello, Funk!")
+}
+</code></pre>
+  </li>
+  <li><strong>Run it</strong>:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funk run hello.funk
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>This is just the beginning! We have exciting plans for Funk’s future:</p>
+
+<ul>
+  <li><strong>IDE Support</strong>: Language server and plugins for popular editors</li>
+  <li><strong>Package Registry</strong>: A central repository for Funk packages</li>
+  <li><strong>WebAssembly</strong>: First-class WASM support for web development</li>
+  <li><strong>Mobile Development</strong>: Native mobile app development capabilities</li>
+</ul>
+
+<h2 id="join-the-community">Join the Community</h2>
+
+<p>Funk is more than just a programming language—it’s a community of developers who believe in building better software. Join us:</p>
+
+<ul>
+  <li><strong><a href="https://discord.gg/funk-lang">Discord</a></strong>: Chat with other Funk developers</li>
+  <li><strong><a href="https://github.com/funk-lang/funk">GitHub</a></strong>: Contribute to the language</li>
+  <li><strong><a href="https://twitter.com/funk_lang">Twitter</a></strong>: Follow for updates</li>
+  <li><strong><a href="https://reddit.com/r/funk_lang">Reddit</a></strong>: Community discussions</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>We’re incredibly excited about Funk’s potential and can’t wait to see what the community builds with it. Whether you’re a systems programmer looking for memory safety, a web developer wanting better async support, or just someone who loves trying new languages, we think you’ll find something to love in Funk.</p>
+
+<p>Download Funk today and start bringing the groove to your code!</p>
+
+<hr />
+
+<p><em>Have questions about Funk? Join our <a href="https://discord.gg/funk-lang">Discord community</a> or check out our <a href="/docs/">documentation</a>.</em></p>]]></content><author><name>Funk Team</name></author><category term="announcement" /><category term="language-design" /><summary type="html"><![CDATA[We're excited to introduce Funk, a modern programming language designed for expressiveness and performance.]]></summary></entry></feed>
